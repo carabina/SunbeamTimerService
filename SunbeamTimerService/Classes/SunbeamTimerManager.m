@@ -83,7 +83,7 @@
     NSMutableDictionary* userInfoDictionary = [[NSMutableDictionary alloc] init];
     [userInfoDictionary setObject:identifier forKey:NSTIMER_USERINFO_IDENTIFIER_KEY];
     [userInfoDictionary setObject:userInfo forKey:NSTIMER_USERINFO_SELF_KEY];
-    NSTimer* timer = [NSTimer scheduledTimerWithTimeInterval:timeInterval target:self selector:@selector(stimerExecuteSelector:) userInfo:userInfoDictionary repeats:repeats];
+    stimer.timer = [NSTimer scheduledTimerWithTimeInterval:timeInterval target:self selector:@selector(stimerExecuteSelector:) userInfo:userInfoDictionary repeats:repeats];
     // 更新STimer cache
     [[STimerEventDispatcher sharedSTimerEventDispatcher] dispatchEvent:stimer eventType:STimerEventType_Add params:nil];
 }
@@ -101,7 +101,7 @@
 }
 
 // 销毁所有STimer
-- (void) destroyAllSTimer
+- (void) clearAllSTimer
 {
     // 更新STimer cache
     [[STimerEventDispatcher sharedSTimerEventDispatcher] dispatchEvent:nil eventType:STimerEventType_Clear params:nil];
