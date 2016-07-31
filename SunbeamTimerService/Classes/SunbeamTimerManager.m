@@ -80,6 +80,7 @@
     stimer.identifier = identifier;
     stimer.name = name;
     stimer.desc = desc;
+    stimer.repeats = repeats;
     NSMutableDictionary* userInfoDictionary = [[NSMutableDictionary alloc] init];
     [userInfoDictionary setObject:identifier forKey:NSTIMER_USERINFO_IDENTIFIER_KEY];
     [userInfoDictionary setObject:userInfo forKey:NSTIMER_USERINFO_SELF_KEY];

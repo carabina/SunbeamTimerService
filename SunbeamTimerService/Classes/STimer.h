@@ -19,6 +19,9 @@
 // 描述
 @property (nonatomic, copy) NSString* desc;
 
+// 是否循环执行
+@property (nonatomic, assign) BOOL repeats;
+
 // NSTimer
 @property (nonatomic, strong) NSTimer* timer;
 
