@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SunbeamTimerService'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'A simple NSTimer service for iOS develop.'
 
   s.homepage         = 'https://github.com/sunbeamChen/SunbeamTimerService'

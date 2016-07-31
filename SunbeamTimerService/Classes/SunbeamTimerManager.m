@@ -10,7 +10,7 @@
 
 #import "STimerEventDispatcher.h"
 
-#define SUNBEAM_TIMER_SERVICE_VERSION @"0.1.1"
+#define SUNBEAM_TIMER_SERVICE_VERSION @"0.1.2"
 
 #define NSTIMER_USERINFO_IDENTIFIER_KEY @"userInfo_identifier"
 
@@ -86,7 +86,9 @@
     stimer.repeats = repeats;
     NSMutableDictionary* userInfoDictionary = [[NSMutableDictionary alloc] init];
     [userInfoDictionary setObject:identifier forKey:NSTIMER_USERINFO_IDENTIFIER_KEY];
-    [userInfoDictionary setObject:userInfo forKey:NSTIMER_USERINFO_SELF_KEY];
+    if (userInfo) {
+        [userInfoDictionary setObject:userInfo forKey:NSTIMER_USERINFO_SELF_KEY];
+    }
     stimer.timer = [NSTimer scheduledTimerWithTimeInterval:timeInterval target:self selector:@selector(stimerExecuteSelector:) userInfo:userInfoDictionary repeats:repeats];
     // 更新STimer cache
     [[STimerEventDispatcher sharedSTimerEventDispatcher] dispatchEvent:stimer eventType:STimerEventType_Add params:nil];
