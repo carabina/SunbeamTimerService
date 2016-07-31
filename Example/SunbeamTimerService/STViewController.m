@@ -39,6 +39,11 @@
 - (void) SunbeamTimerExecute:(NSString *) identifier userInfo:(NSDictionary *) userInfo
 {
     NSLog(@"stimer [%@] 执行，userInfo为[%@]", identifier, userInfo);
+    
+    if ([@"5_STimer" isEqualToString:identifier]) {
+        //[[SunbeamTimerManager sharedSunbeamTimerManager] destroySTimer:@"10_STimer"];
+        [[SunbeamTimerManager sharedSunbeamTimerManager] clearAllSTimer];
+    }
 }
 
 // STimer添加回调

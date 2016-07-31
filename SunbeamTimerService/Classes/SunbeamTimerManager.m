@@ -135,6 +135,7 @@
             NSDictionary* userInfo = tempTimer.userInfo;
             [self.delegate SunbeamTimerExecute:[userInfo objectForKey:NSTIMER_USERINFO_IDENTIFIER_KEY] userInfo:[userInfo objectForKey:NSTIMER_USERINFO_SELF_KEY]];
         }
+        [self destroySTimer:tempTimer];
     }
 }
 
@@ -169,7 +170,7 @@
         for (STimer* stimer in [tempSTimerList allValues]) {
             [self destroySTimer:stimer.identifier];
         }
-        NSLog(@"定时器清空：%@", self.stimerList);
+        NSLog(@"定时器清空：%@", tempSTimerList);
         if ([self.delegate respondsToSelector:@selector(SunbeamTimerClear:)]) {
             [self.delegate SunbeamTimerClear:tempSTimerList];
         }
