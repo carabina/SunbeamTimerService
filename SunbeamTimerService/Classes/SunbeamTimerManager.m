@@ -133,8 +133,8 @@
         NSTimer* tempTimer = timer;
         if ([self.delegate respondsToSelector:@selector(SunbeamTimerExecute:userInfo:)]) {
             NSDictionary* userInfo = tempTimer.userInfo;
-            [self.delegate SunbeamTimerExecute:[userInfo objectForKey:NSTIMER_USERINFO_IDENTIFIER_KEY] userInfo:[userInfo objectForKey:NSTIMER_USERINFO_SELF_KEY]];
             [self destroySTimer:[userInfo objectForKey:NSTIMER_USERINFO_IDENTIFIER_KEY]];
+            [self.delegate SunbeamTimerExecute:[userInfo objectForKey:NSTIMER_USERINFO_IDENTIFIER_KEY] userInfo:[userInfo objectForKey:NSTIMER_USERINFO_SELF_KEY]];
         }
     }
 }
