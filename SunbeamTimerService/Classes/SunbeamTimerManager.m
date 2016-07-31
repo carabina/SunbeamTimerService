@@ -10,6 +10,8 @@
 
 #import "STimerEventDispatcher.h"
 
+#define SUNBEAM_TIMER_SERVICE_VERSION @"0.1.1"
+
 #define NSTIMER_USERINFO_IDENTIFIER_KEY @"userInfo_identifier"
 
 #define NSTIMER_USERINFO_SELF_KEY @"userInfo_self"
@@ -57,6 +59,7 @@
     self.destroySTimerToken = @"destroy STimer token";
     self.clearSTimerToken = @"clear STimer token";
     self.executeSTimerToken = @"execute STimer token";
+    NSLog(@"Sunbeam Timer Service %@", SUNBEAM_TIMER_SERVICE_VERSION);
 }
 
 //初始化EventListener
