@@ -167,10 +167,10 @@
 {
     @synchronized (self.clearSTimerToken) {
         NSMutableDictionary* tempSTimerList = self.stimerList;
+        NSLog(@"定时器清空：%@", self.stimerList);
         for (STimer* stimer in [tempSTimerList allValues]) {
             [self destroySTimer:stimer.identifier];
         }
-        NSLog(@"定时器清空：%@", tempSTimerList);
         if ([self.delegate respondsToSelector:@selector(SunbeamTimerClear:)]) {
             [self.delegate SunbeamTimerClear:tempSTimerList];
         }
